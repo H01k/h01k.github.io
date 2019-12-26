@@ -106,13 +106,13 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: jekyll-theme-cayman
+theme: matery
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
 - type: git
-  repository: git@github.com:godweiyang/godweiyang.github.io.git
+  repository: git@github.com:H01k/h01k.github.io.git
   branch: master
 # - type: coding
 #   repository: https://git.coding.net/godweiyang/godweiyang.github.io.git
