@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://h01k.github.io/"/>
-  <updated>2019-12-31T08:51:35.325Z</updated>
+  <updated>2019-12-31T08:55:55.021Z</updated>
   <id>https://h01k.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://h01k.github.io/2019/12/30/kctf-zong-jue-sai-di-si-ti/"/>
     <id>https://h01k.github.io/2019/12/30/kctf-zong-jue-sai-di-si-ti/</id>
     <published>2019-12-30T07:52:19.000Z</published>
-    <updated>2019-12-31T08:51:35.325Z</updated>
+    <updated>2019-12-31T08:55:55.021Z</updated>
     
     <summary type="html">
     
@@ -35,8 +35,10 @@
     
     </summary>
     
+      <category term="reverse" scheme="https://h01k.github.io/categories/reverse/"/>
     
-      <category term="测试" scheme="https://h01k.github.io/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="reverse 看雪CTF" scheme="https://h01k.github.io/tags/reverse-%E7%9C%8B%E9%9B%AACTF/"/>
     
   </entry>
   
