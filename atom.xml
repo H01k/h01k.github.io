@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://h01k.github.io/"/>
-  <updated>2020-01-11T07:40:44.496Z</updated>
+  <updated>2020-01-11T07:58:40.757Z</updated>
   <id>https://h01k.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>VMP授权keygen分析</title>
+    <link href="https://h01k.github.io/2020/01/11/vmp-shou-quan-keygen-fen-xi/"/>
+    <id>https://h01k.github.io/2020/01/11/vmp-shou-quan-keygen-fen-xi/</id>
+    <published>2020-01-11T07:56:18.000Z</published>
+    <updated>2020-01-11T07:58:40.757Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="reverse" scheme="https://h01k.github.io/tags/reverse/"/>
+    
+      <category term="VMP" scheme="https://h01k.github.io/tags/VMP/"/>
+    
+      <category term="keygen" scheme="https://h01k.github.io/tags/keygen/"/>
+    
+  </entry>
   
   <entry>
     <title>tiny 实验报告</title>

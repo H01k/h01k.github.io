@@ -4,19 +4,11 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="tiny 实验报告, Hook">
+    <meta name="keywords" content="VMP授权keygen分析, Hook">
     <meta name="baidu-site-verification" content>
     <meta name="google-site-verification" content>
     <meta name="360-site-verification" content>
-    <meta name="description" content="实验报告分析该语言的词法和语法规则，分析其编译器的运行命令和代码组成结构词法规则下面是LEX中的变量声明
-定义段可以包含任意的C语言文件，符号说明，其代码会被直接拷贝到生成的扫描器代码文件中
-声明示例如下
-
-%{
-…
-%}
-
-digit  ">
+    <meta name="description" content="VMP授权keygen分析 | Hook的博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -24,7 +16,7 @@ digit  ">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>tiny 实验报告 | Hook的博客</title>
+    <title>VMP授权keygen分析 | Hook的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -314,13 +306,13 @@ digit  ">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/27.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        tiny 实验报告
+                        VMP授权keygen分析
                     </div>
                 </div>
             </div>
@@ -430,7 +422,19 @@ digit  ">
                 <div class="col s7">
                     
                     <div class="article-tag">
-                        <span class="chip bg-color">无标签</span>
+                        
+                        <a href="/tags/reverse/" target="_blank">
+                            <span class="chip bg-color">reverse</span>
+                        </a>
+                        
+                        <a href="/tags/VMP/" target="_blank">
+                            <span class="chip bg-color">VMP</span>
+                        </a>
+                        
+                        <a href="/tags/keygen/" target="_blank">
+                            <span class="chip bg-color">keygen</span>
+                        </a>
+                        
                     </div>
                     
                 </div>
@@ -456,7 +460,7 @@ digit  ">
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    329
+                    0
                 </div>
                 
 
@@ -479,162 +483,7 @@ digit  ">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="实验报告"><a href="#实验报告" class="headerlink" title="实验报告"></a>实验报告</h1><h2 id="分析该语言的词法和语法规则，分析其编译器的运行命令和代码组成结构"><a href="#分析该语言的词法和语法规则，分析其编译器的运行命令和代码组成结构" class="headerlink" title="分析该语言的词法和语法规则，分析其编译器的运行命令和代码组成结构"></a>分析该语言的词法和语法规则，分析其编译器的运行命令和代码组成结构</h2><h3 id="词法规则"><a href="#词法规则" class="headerlink" title="词法规则"></a>词法规则</h3><p>下面是LEX中的变量声明</p>
-<p>定义段可以包含任意的C语言文件，符号说明，其代码会被直接拷贝到生成的扫描器代码文件中</p>
-<p>声明示例如下</p>
-<blockquote>
-<p>%{</p>
-<p>…</p>
-<p>%}</p>
-</blockquote>
-<pre><code>digit       [0-9]
-number      {digit}+
-letter      [a-zA-Z]
-identifier  {letter}+
-newline     \n
-whitespace  [ \t]+</code></pre><p>下面是一些关键字，规则段利用正则表达式来匹配模式，每当成功匹配一个模式，就对应其后“{ }” 中的代码。</p>
-<p>语法规则示例如下</p>
-<blockquote>
-<p>%%</p>
-<p>…</p>
-<p>%%</p>
-</blockquote>
-<pre class="line-numbers language-c++"><code class="language-c++">"if"            {return IF;}
-"then"          {return THEN;}
-"else"          {return ELSE;}
-"end"           {return END;}
-"repeat"        {return REPEAT;}
-"until"         {return UNTIL;}
-"read"          {return READ;}
-"write"         {return WRITE;}
-":="            {return ASSIGN;}
-"="             {return EQ;}
-"<"             {return LT;}
-"+"             {return PLUS;}
-"-"             {return MINUS;}
-"*"             {return TIMES;}
-"/"             {return OVER;}
-"("             {return LPAREN;}
-")"             {return RPAREN;}
-";"             {return SEMI;}
-{number}        {return NUM;}
-{identifier}    {return ID;}
-{newline}       {lineno++;}
-{whitespace}    {/* skip whitespace */}
-"{"             { char c;
-                  do
-                  { c = input();
-                    if (c == EOF) break;
-                    if (c == '\n') lineno++;
-                  } while (c != '}');
-                }
-.               {return ERROR;}
-
-%%
-
-int yywrap()
-{ return 1;}
-
-TokenType getToken(void)
-{ static int firstTime = TRUE;
-  TokenType currentToken;
-  if (firstTime)
-  { firstTime = FALSE;
-    lineno++;
-    yyin = source;
-    yyout = listing;
-  }
-  currentToken = yylex();
-  strncpy(tokenString,yytext,MAXTOKENLEN);
-  if (TraceScan) {
-    fprintf(listing,"\t%d: ",lineno);
-    printToken(currentToken,tokenString);
-  }
-  return currentToken;
-}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>添加<code>//</code> 和 <code>/* */</code>的规则</p>
-<pre class="line-numbers language-C"><code class="language-C">"//"             { char c;
-                  do
-                  { c = input();
-                    if (c == EOF) break;
-                  } while (c != '\n');
-                }
-"/*"             { char c;
-                   int d=0;
-                  do
-                  { c = input();
-                    if (c == '/'&&d==1)
-                    d=2;
-                    else if(c !='/'&&d==1) 
-                    d=0;
-                    if (c == EOF) break;
-                    if (c == '\n') lineno++;
-                    if (c == '*') d=1;
-                  } while (d != 2);
-                }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="测试过程"><a href="#测试过程" class="headerlink" title="测试过程"></a>测试过程</h4><p><img src="%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A.assets/image-20200111132822132.png" alt="image-20200111132822132"></p>
-<h3 id="语法规则"><a href="#语法规则" class="headerlink" title="语法规则"></a>语法规则</h3><p>需要先修改tiny.l使其多识别一种符号</p>
-<pre class="line-numbers language-C"><code class="language-C">"while"         {return WHILE;}<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>语法规则主要在YACC中，添加 while 语法在tiny.y文件中增加声明和定义</p>
-<pre class="line-numbers language-C"><code class="language-C">%token WHILE
-
-while_stmt     : WHILE exp THEN stmt_seq END
-                 { $$ = newStmtNode(WHILEK);
-                   $$->child[0] = $2;
-                   $$->child[1] = $4;
-                 }
-            ;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><code>newStmtNode(WHILEK)</code> </p>
-<p>还需要修改<code>cgen</code>文件，增加对于<code>WHILEK</code>的处理</p>
-<pre class="line-numbers language-c"><code class="language-c">      <span class="token keyword">case</span> WHILEK <span class="token punctuation">:</span>
-         <span class="token keyword">if</span> <span class="token punctuation">(</span>TraceCode<span class="token punctuation">)</span> <span class="token function">emitComment</span><span class="token punctuation">(</span><span class="token string">"-> while"</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
-         p1 <span class="token operator">=</span> tree<span class="token operator">-></span>child<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token punctuation">;</span>
-         p2 <span class="token operator">=</span> tree<span class="token operator">-></span>child<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token punctuation">;</span>
-         <span class="token comment" spellcheck="true">/* generate code for test expression */</span>
-         savedLoc1 <span class="token operator">=</span> <span class="token function">emitSkip</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
-         <span class="token function">cGen</span><span class="token punctuation">(</span>p1<span class="token punctuation">)</span><span class="token punctuation">;</span>
-         savedLoc2 <span class="token operator">=</span> <span class="token function">emitSkip</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
-         <span class="token function">emitComment</span><span class="token punctuation">(</span><span class="token string">"while: jump to else belongs here"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-         <span class="token function">cGen</span><span class="token punctuation">(</span>p2<span class="token punctuation">)</span><span class="token punctuation">;</span>
-         <span class="token function">emitRM_Abs</span><span class="token punctuation">(</span><span class="token string">"LDA"</span><span class="token punctuation">,</span>pc<span class="token punctuation">,</span>savedLoc1<span class="token punctuation">,</span><span class="token string">"jmp to end"</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
-         <span class="token comment" spellcheck="true">/* recurse on then part */</span>
-
-         currentLoc <span class="token operator">=</span> <span class="token function">emitSkip</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
-         <span class="token function">emitBackup</span><span class="token punctuation">(</span>savedLoc2<span class="token punctuation">)</span> <span class="token punctuation">;</span>
-         <span class="token function">emitRM_Abs</span><span class="token punctuation">(</span><span class="token string">"JEQ"</span><span class="token punctuation">,</span>ac<span class="token punctuation">,</span>currentLoc<span class="token punctuation">,</span><span class="token string">"while: jmp to else"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-         <span class="token function">emitRestore</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
-         <span class="token keyword">if</span> <span class="token punctuation">(</span>TraceCode<span class="token punctuation">)</span>  <span class="token function">emitComment</span><span class="token punctuation">(</span><span class="token string">"&lt;- while"</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
-         <span class="token keyword">break</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/* WHILEK_k */</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>tny文件修改为,从10 倒序打印</p>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token punctuation">{</span> Sample program
-  in TINY language <span class="token operator">-</span>
-  computes factorial
-<span class="token punctuation">}</span>
-read x
-<span class="token comment" spellcheck="true">// sssss</span>
-<span class="token comment" spellcheck="true">/* ddd */</span>
-<span class="token punctuation">;</span> <span class="token punctuation">{</span> input an integer <span class="token punctuation">}</span>
-
-<span class="token keyword">if</span> <span class="token number">0</span> <span class="token operator">&lt;</span> x then <span class="token punctuation">{</span> don't compute <span class="token keyword">if</span> x <span class="token operator">&lt;=</span> <span class="token number">0</span> <span class="token punctuation">}</span>
-  fact <span class="token punctuation">:</span><span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-  repeat
-    fact <span class="token punctuation">:</span><span class="token operator">=</span> fact <span class="token operator">*</span> x<span class="token punctuation">;</span>
-    x <span class="token punctuation">:</span><span class="token operator">=</span> x <span class="token operator">-</span> <span class="token number">1</span>
-  until x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-  write fact  <span class="token punctuation">{</span> output factorial of x <span class="token punctuation">}</span>
-end<span class="token punctuation">;</span>
-y <span class="token punctuation">:</span><span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
-<span class="token keyword">while</span> <span class="token number">0</span> <span class="token operator">&lt;</span> y then
-  y <span class="token punctuation">:</span><span class="token operator">=</span> y <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
-  write y
-end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>语法树：</p>
-<p><img src="%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A.assets/image-20200111153138350.png" alt="image-20200111153138350"></p>
-<p>运行的效果：</p>
-<p><img src="%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A.assets/image-20200111153205806.png" alt="image-20200111153205806"></p>
-
+                
             </div>
             <hr />
 
@@ -792,9 +641,9 @@ end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《tiny 实验报告》
+                    《VMP授权keygen分析》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/01/11/tiny-shi-yan-bao-gao/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/01/11/vmp-shou-quan-keygen-fen-xi/" property="cc:attributionName"
                rel="cc:attributionURL">
                 Hook
             </a> 采用
@@ -835,7 +684,7 @@ end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
         repo: 'h01k.github.io',
         owner: 'H01k',
         admin: "H01k",
-        id: '2020/01/11/tiny-shi-yan-bao-gao/',
+        id: '2020/01/11/vmp-shou-quan-keygen-fen-xi/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1118,9 +967,10 @@ end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/01/11/vmp-shou-quan-keygen-fen-xi/">
                     <div class="card-image">
@@ -1138,14 +988,15 @@ end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-01-11
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-01-11
+                            </span>
                         <span class="publish-author">
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1172,49 +1023,37 @@ end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/12/30/kctf-zong-jue-sai-di-si-ti/">
+                <a href="/2020/01/11/tiny-shi-yan-bao-gao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="kctf 总决赛第四题">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="tiny 实验报告">
                         
-                        <span class="card-title">kctf 总决赛第四题</span>
+                        <span class="card-title">tiny 实验报告</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            西部乐园 WP第六题 三道八佛
-题目信息：Windows 
-题目来源：2019 看雪CTF总决赛
+                            实验报告分析该语言的词法和语法规则，分析其编译器的运行命令和代码组成结构词法规则下面是LEX中的变量声明
+定义段可以包含任意的C语言文件，符号说明，其代码会被直接拷贝到生成的扫描器代码文件中
+声明示例如下
 
-打了一次看雪总决赛，这是选取了其中的第六题，最后是由队友提交的writeup，所以会在看雪论坛找到同样的过程。
-题目是多层SMC完成的对于代
+%{
+…
+%}
+
+digit  
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-30
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-01-11
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/reverse-WP/" class="post-category" target="_blank">
-                                    reverse WP
-                                </a>
-                            
-                            
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/reverse-看雪CTF/" target="_blank">
-                        <span class="chip bg-color">reverse 看雪CTF</span>
-                    </a>
-                    
                 </div>
                 
             </div>
