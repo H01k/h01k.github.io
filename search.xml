@@ -11,6 +11,12 @@
         <content type="html"><![CDATA[]]></content>
       
       
+      <categories>
+          
+          <category> reverse </category>
+          
+      </categories>
+      
       
         <tags>
             
@@ -49,14 +55,18 @@
       
       <categories>
           
-          <category> reverse WP </category>
+          <category> writeup </category>
+          
+          <category> reverse </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> reverse 看雪CTF </tag>
+            <tag> reverse </tag>
+            
+            <tag> 看雪CTF </tag>
             
         </tags>
       
