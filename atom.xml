@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://h01k.github.io/"/>
-  <updated>2020-01-10T07:56:44.502Z</updated>
+  <updated>2020-01-11T07:33:35.753Z</updated>
   <id>https://h01k.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://h01k.github.io/2019/12/30/kctf-zong-jue-sai-di-si-ti/"/>
     <id>https://h01k.github.io/2019/12/30/kctf-zong-jue-sai-di-si-ti/</id>
     <published>2019-12-30T07:52:19.000Z</published>
-    <updated>2020-01-10T07:56:44.502Z</updated>
+    <updated>2020-01-11T07:33:35.753Z</updated>
     
     <summary type="html">
     
@@ -29,13 +29,13 @@
       
         
         
-          &lt;h1 id=&quot;西部乐园-WP&quot;&gt;&lt;a href=&quot;#西部乐园-WP&quot; class=&quot;headerlink&quot; title=&quot;西部乐园 WP&quot;&gt;&lt;/a&gt;西部乐园 WP&lt;/h1&gt;&lt;p&gt;题目信息：Windows
+          &lt;h1 id=&quot;西部乐园-WP&quot;&gt;&lt;a href=&quot;#西部乐园-WP&quot; class=&quot;headerlink&quot; title=&quot;西部乐园 WP&quot;&gt;&lt;/a&gt;西部乐园 WP&lt;/h1&gt;&lt;h1 id=&quot;第六题-三道八佛&quot;&gt;&lt;a href=&quot;#第六题-三道八佛&quot;
         
       
     
     </summary>
     
-      <category term="reverse" scheme="https://h01k.github.io/categories/reverse/"/>
+      <category term="reverse WP" scheme="https://h01k.github.io/categories/reverse-WP/"/>
     
     
       <category term="reverse 看雪CTF" scheme="https://h01k.github.io/tags/reverse-%E7%9C%8B%E9%9B%AACTF/"/>
