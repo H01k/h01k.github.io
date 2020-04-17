@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>Affinic Debugger for GDB 安装注册过程</title>
+      <link href="/2020/01/31/affinic-debugger-for-gdb-an-zhuang-zhu-ce-guo-cheng/"/>
+      <url>/2020/01/31/affinic-debugger-for-gdb-an-zhuang-zhu-ce-guo-cheng/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Affinic-Debugger"><a href="#Affinic-Debugger" class="headerlink" title="Affinic Debugger"></a>Affinic Debugger</h1><p>Affinic Debugger，.aka。ADG旨在成为各种调试器的日常图形用户界面（GUI）。此构建专门针对GDB，GNU调试器和LLDB，LLVM调试器。通过图形窗口，ADG可以通过在一个视图中查看多个信息，然后单击轻松进行调试，从而释放您正在使用的调试器的全部功能。ADG还提供了一个独特的集成命令终端，供用户直接输入调试器命令以完成在文本模式下可以执行的任何任务。ADG在Linux / Windows / Mac OS X上可用。</p><p>Affinic Debugger的目标是为任何类型的用户提供最佳的调试体验。它试图通过直观的界面提供超快的速度，以操纵代码和大量数据以帮助分析。ADG提供了其他IDE无法做到的功能，例如GDB / LLDB终端，程序集调试，远程调试，反汇编，内存更新和线程调试等。ADG是一个不断发展的产品。欢迎您提供反馈意见，以帮助它变得更好，更强大。只需给我们发送电子邮件。</p><p><strong>就是一款GUI的调试器，用的是GDB或者LLDB作为后端。</strong></p><p>官方地址： <a href="http://www.affinic.com/?page_id=109" target="_blank" rel="noopener">http://www.affinic.com/?page_id=109</a></p><h2 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h2><p>分为Windows 版本和Linux 版本，</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> pwn </category>
+          
+          <category> gdb </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> reverse </tag>
+            
+            <tag> Affinic </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>VMP授权keygen分析</title>
       <link href="/2020/01/11/vmp-shou-quan-keygen-fen-xi/"/>
       <url>/2020/01/11/vmp-shou-quan-keygen-fen-xi/</url>
