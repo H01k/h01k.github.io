@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://h01k.github.io/"/>
-  <updated>2020-01-31T12:41:42.242Z</updated>
+  <updated>2020-11-03T14:27:49.129Z</updated>
   <id>https://h01k.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>飞塔防火墙配置将内网ip映射到外网</title>
+    <link href="https://h01k.github.io/2020/11/03/fei-ta-fang-huo-qiang-pei-zhi-jiang-nei-wang-ip-ying-she-dao-wai-wang/"/>
+    <id>https://h01k.github.io/2020/11/03/fei-ta-fang-huo-qiang-pei-zhi-jiang-nei-wang-ip-ying-she-dao-wai-wang/</id>
+    <published>2020-11-03T14:15:49.000Z</published>
+    <updated>2020-11-03T14:27:49.129Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;配置网卡&quot;&gt;&lt;a href=&quot;#配置网卡&quot; class=&quot;headerlink&quot; title=&quot;配置网卡&quot;&gt;&lt;/a&gt;配置网卡&lt;/h2&gt;&lt;p&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Affinic Debugger for GDB 安装注册过程</title>
