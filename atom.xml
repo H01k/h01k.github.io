@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://h01k.github.io/"/>
-  <updated>2021-01-03T16:25:25.685Z</updated>
+  <updated>2021-05-23T14:14:38.942Z</updated>
   <id>https://h01k.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Windows_pwn_记录</title>
+    <link href="https://h01k.github.io/2021/05/23/windows-pwn-ji-lu/"/>
+    <id>https://h01k.github.io/2021/05/23/windows-pwn-ji-lu/</id>
+    <published>2021-05-23T14:11:18.000Z</published>
+    <updated>2021-05-23T14:14:38.942Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;贴一个我蠢到家的exp  题目 StackOverflow.exe&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;
+&lt;span class=&quot;token
+        
+      
+    
+    </summary>
+    
+      <category term="pwn" scheme="https://h01k.github.io/categories/pwn/"/>
+    
+    
+      <category term="pwn" scheme="https://h01k.github.io/tags/pwn/"/>
+    
+  </entry>
   
   <entry>
     <title>sqli-labs通关记录</title>
