@@ -4,12 +4,17 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="hookme, Hook">
+    <meta name="keywords" content="xray逆向记录, Hook">
     <meta name="baidu-site-verification" content>
     <meta name="google-site-verification" content>
     <meta name="360-site-verification" content>
-    <meta name="description" content="新的博客开始啦~认真整理东西！！！ 冲！
-">
+    <meta name="description" content="xray逆向使用插件来加载符号~
+拉到最下面找到main_main,寻找打开注册码的位置。
+
+寻找key和iv ，很奇怪，我找不到block的指针。
+
+ key是固定的，IV是base64解密以后的前16个字节。
+最后需要patch两个函数">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +22,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>hookme | Hook的博客</title>
+    <title>xray逆向记录 | Hook的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -294,13 +299,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        hookme
+                        xray逆向记录
                     </div>
                 </div>
             </div>
@@ -422,7 +427,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-12-26
+                    2020-11-29
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -436,7 +441,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    14
+                    86
                 </div>
                 
 
@@ -459,7 +464,14 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="新的博客开始啦"><a href="#新的博客开始啦" class="headerlink" title="新的博客开始啦~"></a>新的博客开始啦~</h1><p>认真整理东西！！！ 冲！</p>
+                <h1 id="xray逆向"><a href="#xray逆向" class="headerlink" title="xray逆向"></a>xray逆向</h1><p>使用插件来加载符号~</p>
+<p>拉到最下面找到main_main,寻找打开注册码的位置。</p>
+<p><img src="xray%E9%80%86%E5%90%91%E8%AE%B0%E5%BD%95.assets/image-20201129162939910.png" alt="image-20201129162939910"></p>
+<p>寻找key和iv ，很奇怪，我找不到block的指针。</p>
+<p><img src="xray%E9%80%86%E5%90%91%E8%AE%B0%E5%BD%95.assets/image-20201129174840066.png" alt="image-20201129174840066"></p>
+<p> key是固定的，IV是base64解密以后的前16个字节。</p>
+<p>最后需要patch两个函数下面的jz 第一个是跳转，第二个是不跳转</p>
+<p><img src="xray%E9%80%86%E5%90%91%E8%AE%B0%E5%BD%95.assets/image-20201129220623283.png" alt="image-20201129220623283"></p>
 
             </div>
             <hr />
@@ -618,9 +630,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《hookme》
+                    《xray逆向记录》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/12/26/hookme/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/11/29/xray-ni-xiang-ji-lu/" property="cc:attributionName"
                rel="cc:attributionURL">
                 Hook
             </a> 采用
@@ -661,7 +673,7 @@
         repo: 'h01k.github.io',
         owner: 'H01k',
         admin: "H01k",
-        id: '2019/12/26/hookme/',
+        id: '2020/11/29/xray-ni-xiang-ji-lu/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -948,43 +960,32 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/12/30/kctf-zong-jue-sai-di-si-ti/">
+                <a href="/2021/01/03/sqli-labs-tong-guan-ji-lu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="KCTF 总决赛第六题">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="sqli-labs通关记录">
                         
-                        <span class="card-title">KCTF 总决赛第六题</span>
+                        <span class="card-title">sqli-labs通关记录</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            西部乐园 WP第六题 三道八佛
-题目信息：Windows 
-题目来源：2019 看雪CTF总决赛
-
-题目是多层SMC完成的对于代码的加密，使用OD加载程序以后发现跑起来非常的卡。
-
-由于SMC的代码量很大，所以在OD中不太好用，我选择了x3
+                            
+  
+  
+    请输入文章密码！
+    
+  
+  ca7a67df69ad262268dc424c73472201bb9a7db542b33a9b50cd9438e4e67f85bddd35e1bc980d5a51d762eea2
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-30
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-01-03
                         </span>
                         <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/writeup/" class="post-category" target="_blank">
-                                    writeup
-                                </a>
-                            
-                            <a href="/categories/writeup/re/" class="post-category" target="_blank">
-                                    re
-                                </a>
-                            
                             
                         </span>
                     </div>
@@ -992,12 +993,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/reverse/" target="_blank">
-                        <span class="chip bg-color">reverse</span>
-                    </a>
-                    
-                    <a href="/tags/看雪CTF/" target="_blank">
-                        <span class="chip bg-color">看雪CTF</span>
+                    <a href="/tags/web/" target="_blank">
+                        <span class="chip bg-color">web</span>
                     </a>
                     
                 </div>
@@ -1008,35 +1005,41 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/12/26/hookme/">
+                <a href="/2020/11/10/cve-2020-16898-diao-shi-fu-xian-ji-lu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="hookme">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="CVE-2020-16898调试复现记录">
                         
-                        <span class="card-title">hookme</span>
+                        <span class="card-title">CVE-2020-16898调试复现记录</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            新的博客开始啦~认真整理东西！！！ 冲！
-
+                            CVE-2020-16898
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-26
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-11-10
                             </span>
                         <span class="publish-author">
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/CVE/" target="_blank">
+                        <span class="chip bg-color">CVE</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
