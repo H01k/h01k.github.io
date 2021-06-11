@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://h01k.github.io/"/>
-  <updated>2021-06-02T00:48:42.852Z</updated>
+  <updated>2021-06-10T14:21:41.991Z</updated>
   <id>https://h01k.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://h01k.github.io/2021/05/23/windows-pwn-ji-lu/"/>
     <id>https://h01k.github.io/2021/05/23/windows-pwn-ji-lu/</id>
     <published>2021-05-23T14:11:18.000Z</published>
-    <updated>2021-06-02T00:48:42.852Z</updated>
+    <updated>2021-06-10T14:21:41.991Z</updated>
     
     <summary type="html">
     
@@ -29,9 +29,7 @@
       
         
         
-          &lt;p&gt;贴一个我蠢到家的exp  题目 StackOverflow.exe&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;
-&lt;span class=&quot;token
+          &lt;h2 id=&quot;StackOverflow&quot;&gt;&lt;a href=&quot;#StackOverflow&quot; class=&quot;headerlink&quot; title=&quot;StackOverflow&quot;&gt;&lt;/a&gt;StackOverflow&lt;/h2&gt;&lt;p&gt;贴一个我蠢到家的exp  题目
         
       
     
