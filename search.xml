@@ -8,9 +8,21 @@
       <link href="/2021/06/21/rw-ti-mu-lian-xi/"/>
       <url>/2021/06/21/rw-ti-mu-lian-xi/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h2 id="MTP-qwb2020"><a href="#MTP-qwb2020" class="headerlink" title="MTP qwb2020"></a>MTP qwb2020</h2><p>RW 题目对我来说是比较复杂的，但是其中漏洞的点可以比较快速的发现，但是利用得时候是非常麻烦和复杂的，对于菜单题可以快速进行pwntools进行交互，但是rw题目需要分析文件结构等，对于逆向来说实在是麻烦。</p><p>这次记录是从最基本的对比开始</p><h3 id="使用beyond-compare-4-进行文件对比"><a href="#使用beyond-compare-4-进行文件对比" class="headerlink" title="使用beyond compare 4 进行文件对比"></a>使用beyond compare 4 进行文件对比</h3><p>这些位置是修改了ASLR和增加了一个区段</p><p><img src="RW%E9%A2%98%E7%9B%AE%E7%BB%83%E4%B9%A0.assets/image-20210622103229946.png" alt="image-20210622103229946"></p><p><img src="RW%E9%A2%98%E7%9B%AE%E7%BB%83%E4%B9%A0.assets/image-20210622103300105.png" alt="image-20210622103300105"></p><p>这里就是修改的具体代码了</p><p><img src="RW%E9%A2%98%E7%9B%AE%E7%BB%83%E4%B9%A0.assets/image-20210622103316014.png" alt="image-20210622103316014"></p><h3 id="分析差异位置"><a href="#分析差异位置" class="headerlink" title="分析差异位置"></a>分析差异位置</h3><p><img src="RW%E9%A2%98%E7%9B%AE%E7%BB%83%E4%B9%A0.assets/image-20210622103410315.png" alt="image-20210622103410315"></p><p>跳转文件偏移，发现修改了一个指针，使其指向了新建的区段。</p><p><img src="RW%E9%A2%98%E7%9B%AE%E7%BB%83%E4%B9%A0.assets/image-20210622103611941.png" alt="image-20210622103611941"></p><p>新增了一些处理流程</p><p><img src="RW%E9%A2%98%E7%9B%AE%E7%BB%83%E4%B9%A0.assets/image-20210622103735641.png" alt="image-20210622103735641"></p><p>同时在下面发现了故意预留的指针，所以一定是通过覆盖指针 来实现对于WinExec函数的调用。</p><p>在旧的处理流程中发现了复制时长度可以由用户可控。</p><p><img src="RW%E9%A2%98%E7%9B%AE%E7%BB%83%E4%B9%A0.assets/image-20210622112745798.png" alt="image-20210622112745798"></p><p>想要在这里覆盖掉预留的指针，必须在这里想办法来覆盖掉高地址已经分配的块</p><h3 id="漏洞分析"><a href="#漏洞分析" class="headerlink" title="漏洞分析"></a>漏洞分析</h3><p>使用010 editor 来分析文件结构可以方便的发现这两个结构的位置</p><pre><code>lpMR-&gt;rdFunction == 0x2019 &amp;&amp; lpMR-&gt;rdParm[0] == 0x233 </code></pre><p>随便新建一个文件，然后保存出来</p><p><img src="RW%E9%A2%98%E7%9B%AE%E7%BB%83%E4%B9%A0.assets/image-20210622115124566.png" alt="image-20210622115124566"></p><p>可以发现其实就是上面偏移所指向的位置其中 word function 其实就是第一个判断，通过这个可以来控制流程。</p><p>头部结构</p><p><a href="https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-wmf/19df7165-dd09-4fe1-9229-d2667a4a02f4" target="_blank" rel="noopener">https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-wmf/19df7165-dd09-4fe1-9229-d2667a4a02f4</a> </p><p>META_ESCAPE_ENHANCED_METAFILE  这个是对应了0x626</p><p><a href="https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-wmf/cfc88064-d86d-4b52-9374-3ce27d456179" target="_blank" rel="noopener">https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-wmf/cfc88064-d86d-4b52-9374-3ce27d456179</a></p><p><img src="RW%E9%A2%98%E7%9B%AE%E7%BB%83%E4%B9%A0.assets/image-20210622203136230.png" alt="image-20210622203136230"></p><p>这个题目有个比较简单的地方是，头部的数据可以直接在其他文件中复制就可以了，因为无论是否正确都可以进行使用，而且checksum仅仅校验了头部的正确性。</p><p>想要进入添加的代码分支就要构造RecordFunction是0x2019 ，下一个字是0x233。在这个分支中主要完成的是对于内存块的申请，其实没啥具体意义主要是可以将内存中已经释放掉不连续的内存消耗掉。进而提高成功率。</p><p><img src="RW%E9%A2%98%E7%9B%AE%E7%BB%83%E4%B9%A0.assets/image-20210622203520657.png" alt="image-20210622203520657"></p><p>明确的是原始代码存在漏洞，所以添加的代码其实是为了内存布局和给一个触发漏洞的机会。</p><pre><code>┌────────────────────┐│ data  org&gt;alloc_chu││ nk                 │ 上面的堆块 发生越界写 进而覆盖下面两个函数指针，进而控制程序│ oob                ││                    ││                    ││                    │├────────────────────┤│ p1          p2     │├────────────────────┤│string              ││                    ││                    ││                    ││                    │└────────────────────┘</code></pre><p>建立的模板中也就存在这个函数，进而定位可以控制memmove</p><p><img src="RW%E9%A2%98%E7%9B%AE%E7%BB%83%E4%B9%A0.assets/image-20210622221738089.png" alt="image-20210622221738089"></p><p><img src="RW%E9%A2%98%E7%9B%AE%E7%BB%83%E4%B9%A0.assets/image-20210623102037307.png" alt="image-20210623102037307"></p>]]></content>
       
       
+      <categories>
+          
+          <category> pwn </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Windows_pwn </tag>
+            
+        </tags>
       
     </entry>
     

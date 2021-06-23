@@ -332,10 +332,19 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             <div class="tag-chips">
                 
                 
+                <a href="/tags/PWN/" title="PWN: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="PWN" style="background-color: #F9EBEA;">PWN
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/tags/reverse/" title="reverse: 3">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="reverse" style="background-color: #F9EBEA;">reverse
+                            data-tagname="reverse" style="background-color: #F5EEF8;">reverse
                         <span class="tag-length">3</span>
                     </span>
                 </a>
@@ -344,7 +353,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 <a href="/tags/Affinic/" title="Affinic: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Affinic" style="background-color: #F5EEF8;">Affinic
+                            data-tagname="Affinic" style="background-color: #D5F5E3;">Affinic
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -353,7 +362,16 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 <a href="/tags/CVE/" title="CVE: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="CVE" style="background-color: #D5F5E3;">CVE
+                            data-tagname="CVE" style="background-color: #E8F8F5;">CVE
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Windows-pwn/" title="Windows_pwn: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Windows_pwn" style="background-color: #FEF9E7;">Windows_pwn
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -362,7 +380,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 <a href="/tags/VMP/" title="VMP: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="VMP" style="background-color: #E8F8F5;">VMP
+                            data-tagname="VMP" style="background-color: #F8F9F9;">VMP
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -371,25 +389,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 <a href="/tags/keygen/" title="keygen: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="keygen" style="background-color: #FEF9E7;">keygen
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/PWN/" title="PWN: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="PWN" style="background-color: #F8F9F9;">PWN
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/看雪CTF/" title="看雪CTF: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="看雪CTF" style="background-color: #82E0AA;">看雪CTF
+                            data-tagname="keygen" style="background-color: #82E0AA;">keygen
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -404,10 +404,19 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 </a>
                 
                 
+                <a href="/tags/看雪CTF/" title="看雪CTF: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="看雪CTF" style="background-color: #A3E4D7;">看雪CTF
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/tags/web/" title="web: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-active "
-                            data-tagname="web" style="background-color: #A3E4D7;">web
+                            data-tagname="web" style="background-color: #85C1E9;">web
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -429,7 +438,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="sqli-labs通关记录">
+                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="sqli-labs通关记录">
                             
                             <span class="card-title">sqli-labs通关记录</span>
                         </div>
@@ -459,7 +468,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">4.8k</span>
+            <span class="white-color">5.5k</span>
             
 
             <br>
@@ -526,8 +535,8 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
     $(document).ready(function () {
 
         var int = setInterval(fixCount, 50);
-        var pvcountOffset = 0;
-        var uvcountOffset = 0;
+        var pvcountOffset = 1;
+        var uvcountOffset = 1;
 
         function fixCount() {
             if (document.getElementById("busuanzi_container_site_pv").style.display != "none") {
