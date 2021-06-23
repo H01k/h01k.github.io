@@ -449,14 +449,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    659
+                    932
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
                 
@@ -519,6 +519,18 @@
 └────────────────────┘</code></pre><p>建立的模板中也就存在这个函数，进而定位可以控制memmove</p>
 <p><img src="RW%E9%A2%98%E7%9B%AE%E7%BB%83%E4%B9%A0.assets/image-20210622221738089.png" alt="image-20210622221738089"></p>
 <p><img src="RW%E9%A2%98%E7%9B%AE%E7%BB%83%E4%B9%A0.assets/image-20210623102037307.png" alt="image-20210623102037307"></p>
+<p>想要覆盖下一个堆块 v7的指针向前移动，经过测试在经过第一轮的APPsMFCC以后正好是完全把申请的内存用掉了。所以下面要是还有一轮的话就能够覆盖后面申请的内存块了。</p>
+<p><img src="RW%E9%A2%98%E7%9B%AE%E7%BB%83%E4%B9%A0.assets/image-20210623155923930.png" alt="image-20210623155923930"></p>
+<p>想要这个函数不返回0 就要将这两个值调整成不相等的，对应文件中就是0x14和0x18的位置，而且0x18是覆盖多长的距离。</p>
+<p><img src="RW%E9%A2%98%E7%9B%AE%E7%BB%83%E4%B9%A0.assets/image-20210623160616554.png" alt="image-20210623160616554"></p>
+<p>所以修改0x14和0x18位置的值</p>
+<p>大概步骤是 消耗 0x108的chunk -&gt; 通过original_proc 的检查，然后申请0x108的chunk，同时修改0x18位置使其认为并没有结束循环。 -&gt; 申请包含两个可用指针的chunk （想要覆盖的chunk）</p>
+<p><img src="RW%E9%A2%98%E7%9B%AE%E7%BB%83%E4%B9%A0.assets/image-20210623162607049.png" alt="image-20210623162607049"></p>
+<p>在下一轮中即可开始覆盖后面的chunk。</p>
+<p>这里也需要通过覆盖来进行绕过。</p>
+<p><img src="RW%E9%A2%98%E7%9B%AE%E7%BB%83%E4%B9%A0.assets/image-20210623163010382.png" alt="image-20210623163010382"></p>
+<p>在控制程序流程后，第一个call是调整esp进行栈迁移，进而可以控制程序流程，程序中预留了可以控制esp的代码。</p>
+<p>先进行测试代码覆盖，构建代码</p>
 
             </div>
             <hr />
@@ -1255,7 +1267,7 @@
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">5.5k</span>
+            <span class="white-color">5.8k</span>
             
 
             <br>
